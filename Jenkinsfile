@@ -56,7 +56,7 @@ pipeline {
       stage('Deploy to k8s'){
             steps{
                 sshagent(['kops-machine']) {
-                    sh "scp -o StrictHostKeyChecking=no deploy.yaml ec2-user@15.206.146.149:/home/ec2-user/"
+                    sh 'envsubst < ${WORKSPACE}/deploy.yaml | "scp -o StrictHostKeyChecking=no deploy.yaml ec2-user@15.206.146.149:/home/ec2-user/"
                     script{
                         try{
                             sh "ssh ec2-user@15.206.146.149 kubectl apply -f ."
