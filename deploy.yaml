@@ -18,7 +18,6 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
-        imagePullPolicy: Never
         readinessProbe:
           httpGet:
             path: /healthz
