@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: position-tracker
-        image: gopac/gopac25-position-tracker:16
+        image: gopac/gopac25-position-tracker:17
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
