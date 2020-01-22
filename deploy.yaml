@@ -40,4 +40,4 @@ spec:
     - name: http
       port: 8080
 
-  type: ClusterIP
+  type: Loadbalancer
