@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.virtualpairprogrammers</groupId>
-	<artifactId>positionreceiver</artifactId>
+	<artifactId>positiontracker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -66,27 +66,6 @@
 				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.21.0</version>
-
-				<configuration>
-			        <dockerHost>tcp://192.168.99.100:2376</dockerHost>  
-                    <certPath>C:\Users\Richard\.docker\machine\machines\default</certPath>
-				
-                    <verbose>true</verbose>
-					<images>
-						<image>
-							<name>richardchesterwood/k8s-fleetman-position-tracker</name>
-							<build>
-								<dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
-								<assembly>
-									<descriptorRef>artifact</descriptorRef>
-								</assembly>
-								<tags>
-									<tag>replicated</tag>
-								</tags>
-							</build>
-						</image>
-					</images>
-				</configuration>
 			</plugin>			
 			
 		</plugins>
@@ -109,13 +88,8 @@
         <repository>
             <id>nexus</id>
             <name>Internal Releases</name>
-            <url>http://172.18.0.4:8081/repository/myproject-release/</url>
+            <url>http://192.168.145.146:8081/repository/javaspringboot/</url>
         </repository>
-        <snapshotRepository>
-            <id>nexus</id>
-            <name>Internal Snapshot Releases</name>
-            <url>http://172.18.0.4:8081/repository/myproject-snapshot/</url>
-        </snapshotRepository>
     </distributionManagement>
 		
 		<resources>
