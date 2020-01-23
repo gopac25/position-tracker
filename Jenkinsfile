@@ -7,7 +7,7 @@ pipeline {
      YOUR_DOCKERHUB_USERNAME = "gopac"
 
      SERVICE_NAME = "position-tracker"
-     registry="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
+     registry="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:latest"
      //registry = "gopac/gopac"
      registryCredential = 'dockerhub'
      dockerImage = ''
