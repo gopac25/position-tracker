@@ -32,6 +32,12 @@ pipeline {
            -Dsonar.login=c428c0b436b92f1b9b629b5f597e60afead13a8a
          }
       }
+      
+            stage('Deploy to Nexus') {
+         steps {
+            sh '''mvn deploy'''
+         }
+      }
       //stage('Build and Push Image') {
         // steps {
          // dockerImage = sh 'docker build -t ${REPOSITORY_TAG} .'
