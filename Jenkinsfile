@@ -57,12 +57,12 @@ pipeline {
             steps{
                 sshagent(['kops-machine']) {
                     sh 'envsubst < ${WORKSPACE}/deploy.yaml'
-                    sh "scp -o StrictHostKeyChecking=no deploy.yaml ec2-user@15.206.146.149:/home/ec2-user/"
+                    sh "scp -o StrictHostKeyChecking=no deploy.yaml ec2-user@13.232.248.46:/home/ec2-user/"
                     script{
                         try{
-                            sh "ssh ec2-user@15.206.146.149 kubectl apply -f ."
+                            sh "ssh ec2-user@13.232.248.46 kubectl apply -f ."
                         }catch(error){
-                            sh "ssh ec2-user@15.206.146.149 kubectl create -f ."
+                            sh "ssh ec2-user@13.232.248.46 kubectl create -f ."
                         }
                     }
                 }
