@@ -25,7 +25,11 @@ pipeline {
             sh '''mvn clean package'''
          }
       }
-
+      stage('Code Analysis') {
+         steps {
+           mvn sonar:sonar -Dsonar.projectKey=javaspringboot -Dsonar.host.url=http://192.168.145.146:9000 -Dsonar.login=c428c0b436b92f1b9b629b5f597e60afead13a8a
+         }
+      }
       //stage('Build and Push Image') {
         // steps {
          // dockerImage = sh 'docker build -t ${REPOSITORY_TAG} .'
